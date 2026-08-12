@@ -15,6 +15,7 @@ To turn that theory into practice, I use hands-on lab environments like [LabEx](
 ## Labs
 
 | Lab | Topic | Tools |
+|---|---|---|
 | [nmap-multi-ip-scan](./nmap-multi-ip-scan) | Scanning multiple IP addresses simultaneously | Nmap |
 
 *(More labs will be added here as I complete them.)*
