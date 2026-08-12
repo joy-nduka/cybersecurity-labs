@@ -14,6 +14,7 @@ First step was getting the tool installed. After opening the terminal, I refresh
 sudo apt update
 sudo apt install nmap -y
 ```
+![Installing Nmap](./nmap-installation.png)
 
 Then I checked it installed correctly:
 
@@ -30,16 +31,20 @@ I started with the simplest possible scan, against my own machine:
 ```bash
 nmap localhost
 ```
+![First scan with Nmap](./first-scan-with-nmap.png)
 
 I could see open ports (like `22/tcp` for SSH) and understand that this is because I was running a secure terminal session.
 
 ## 3. Scanning a range of IPs
 
-Then I moved on to scanning more than one address at once, which is really the point of this lab:
+First, I specified an IP range. Then I moved on to scanning more than one address at once, which is really the point of this lab:
 
 ```bash
+ip addr show
 nmap 127.0.0.1-5
 ```
+![IP range scan results](./ip-ranges-scan-method.png)
+
 
 This scans 5 addresses in one go instead of running the command five separate times. Small thing, but it's the kind of efficiency that matters when I'm dealing with a real network with dozens or hundreds of devices.
 
@@ -50,6 +55,8 @@ I'd seen CIDR notation (like `/24`) mentioned in my networking coursework, but t
 ```bash
 nmap 127.0.0.0/24
 ```
+![CIDR notation scan results](./cidr-notation-scan-method.png)
+
 
 This scans all 256 addresses in that block at once. Once I ran it and saw 256 results come back, the concept of "the first 24 bits are fixed, the last 8 vary" finally felt concrete instead of just something I'd memorized for a quiz.
 
@@ -60,6 +67,8 @@ Toward the end I learned about `-sn`, which skips port scanning entirely and jus
 ```bash
 nmap -sn 127.0.0.0/24
 ```
+![Faster CIDR scan with -sn](./cidr-notation-scan-method-faster.png)
+
 
 ## My results
 
